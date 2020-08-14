@@ -10,15 +10,18 @@ class Registration extends React.Component {
     let errors;
     let success;
     let msg;
+    let data;
     if(__isBrowser__) {
       errors = window.__INITIAL_ERRORS__;
       success = window.__INITIAL_SUCCESS__;
       msg = window.__INITIAL_INDICATE__;
+      data = window.__INITIAL_DATA__;
     }
     this.state = {
       errors,
       success,
-      msg
+      msg,
+      data
     }
     if(this.state.errors) {
       console.log(this.state.errors);
@@ -58,9 +61,13 @@ class Registration extends React.Component {
   check = () => {
     if(!this.state.success) {
       return(
-        <p>
+        <p style ={{
+          display: (this.state.data && this.state.data.user ? 'grid' : 'none')
+        }}>
          <NavLink to='/' className='back'><img src={arrow} id='arrow'/>назад</NavLink>
-          <form action='/signup' method='POST' className='form_check'>
+          <form action='/signup' method='POST' className='form_check' style ={{
+            display: (this.state.data && this.state.data.user ? 'grid' : 'none')
+          }}>
             <input type='text' name='name' placeholder='введите имя' required/>
              <input type='text' name='lastname' placeholder='введите фамилию' required/>
                <input type='text' name='email' placeholder='email' required/>
