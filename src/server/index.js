@@ -73,7 +73,7 @@ app.use('/communication', commRouter);
 app.use('/work', workRouter);
 
 app.get('/', (req, res, next) => {
-  getClass()
+  getData()
   .then(data => {
     const cond = req.isAuthenticated();
     const user = req.user;
