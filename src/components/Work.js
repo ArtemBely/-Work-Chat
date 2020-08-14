@@ -35,7 +35,9 @@ class Work extends React.Component {
     return (
       <p className='work'>
         <p className='wrap_head'><Header /></p>
-        <NavLink to='/create' className='create_thema'>Создать тему</NavLink>
+        <NavLink to='/create' className='create_thema' style ={{
+          display: (this.state.data ? 'flex' : 'none')
+        }}>Создать тему</NavLink>
         <Route exact path='/create'>
             <Add />
         </Route>

@@ -84,6 +84,7 @@ router.post('/', notLoggedIn, (req, res, done) => {
                         <script src='bundle.js' defer></script>
                            <script>window.__INITIAL_ERRORS__= ${serialize(errors)}</script>
                            <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
+                           <script>window.__INITIAL_DATA__= ${serialize(data)}</script>
                            <title>Регистрация</title>
                             </head>
                           <body>
@@ -118,6 +119,7 @@ router.post('/', notLoggedIn, (req, res, done) => {
                          <script src='bundle.js' defer></script>
                            <script>window.__INITIAL_ERRORS__= ${serialize(errors)}</script>
                            <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
+                           <script>window.__INITIAL_DATA__= ${serialize(data)}</script>
                            <title>Практикуй английский</title>
                             </head>
                           <body>
