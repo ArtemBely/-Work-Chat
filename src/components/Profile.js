@@ -37,9 +37,13 @@ class Profile extends React.Component {
       <p className='profile' style={{
         display: (this.state.info ? 'grid' : 'none')
       }}>
-          <Header />
+          <p style={{
+            display: (this.state.info ? 'grid' : 'none')
+          }}><Header /></p>
           <i id='wait'>{this.user()} Тебя ждут в чате! :)</i>
-          <img src={mac} id='mac' />
+          <img src={mac} id='mac' style={{
+            display: (this.state.info ? 'grid' : 'none')
+          }} />
       </p>
     )
   }
