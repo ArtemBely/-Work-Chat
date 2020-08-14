@@ -41,6 +41,7 @@ router.get('/', notLoggedIn, (req, res, next) => {
                     <script src='/bundle.js' defer></script>
                         <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
                          <script>window.__INITIAL_USER__= ${serialize(user)}</script>
+                         <script>window.__INITIAL_DATA__= ${serialize(data)}</script>
                           <title>Практикуй английский</title>
                         </head>
                       <body>
