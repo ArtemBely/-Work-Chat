@@ -13,7 +13,7 @@ import App from '../components/App';
 import Main from '../components/Main';
 import passport from 'passport';
 import flash from 'connect-flash';
-import { getData } from '../../components/fetchData';
+import { getData } from '../components/fetchData';
 
 const port = process.env.PORT || 5000;
 const CONNECTION_URI = process.env.MONGODB_URI;
