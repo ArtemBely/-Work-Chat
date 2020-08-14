@@ -7,6 +7,7 @@ import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import SignUp from '../models/registration.js';
 import Registration from '../../components/Registration';
+import { getData } from '../../components/fetchData';
 
 const LocalStrategy = require('passport-local').Strategy;
 const router = express.Router();
@@ -68,33 +69,36 @@ router.post('/', notLoggedIn, (req, res, done) => {
   var errors = req.validationErrors();
 
     if(errors) {
-        const cond = req.isAuthenticated();
-        const mark = renderToString(
-          <StaticRouter>
-             <Registration />
-          </StaticRouter>
-        )
-      return res.send(
-          `<!DOCTYPE html>
-              <html>
-                  <head>
-                    <title>Speaqiz - Регистрация</title>
-                      <link rel="stylesheet" type="text/css" href="main.css">
-                      <meta name="viewport" content="width=device-width, initial-scale=1">
-                        <script src='bundle.js' defer></script>
-                           <script>window.__INITIAL_ERRORS__= ${serialize(errors)}</script>
-                           <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
-                           <script>window.__INITIAL_DATA__= ${serialize(data)}</script>
-                           <title>Регистрация</title>
-                            </head>
-                          <body>
-                         <div id="app">
-                       ${mark}
-                    </div>
-                  </body>
-              </html>
-          `
-        )
+        getData()
+        .then(data => {
+          const cond = req.isAuthenticated();
+          const mark = renderToString(
+            <StaticRouter>
+               <Registration />
+            </StaticRouter>
+          )
+        return res.send(
+            `<!DOCTYPE html>
+                <html>
+                    <head>
+                      <title>Speaqiz - Регистрация</title>
+                        <link rel="stylesheet" type="text/css" href="main.css">
+                        <meta name="viewport" content="width=device-width, initial-scale=1">
+                          <script src='bundle.js' defer></script>
+                             <script>window.__INITIAL_ERRORS__= ${serialize(errors)}</script>
+                             <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
+                             <script>window.__INITIAL_DATA__= ${serialize(data)}</script>
+                             <title>Регистрация</title>
+                              </head>
+                            <body>
+                           <div id="app">
+                         ${mark}
+                      </div>
+                    </body>
+                </html>
+            `
+          )
+        }).catch(next)
       }
 
       SignUp.findOne({email: email}, function(err, user) {
@@ -102,34 +106,38 @@ router.post('/', notLoggedIn, (req, res, done) => {
           return done(err);
         }
         if(user) {
-          const errors = [{'msg': 'Такой Email уже используется'}];
-          const cond = req.isAuthenticated();
-          const mark = renderToString(
-            <StaticRouter>
-               <Registration />
-            </StaticRouter>
-          )
-        res.send(
-          `<!DOCTYPE html>
-              <html>
-                  <head>
-                    <title>Speaqiz - Регистрация</title>
-                      <link rel="stylesheet" type="text/css" href="main.css">
-                       <meta name="viewport" content="width=device-width, initial-scale=1">
-                         <script src='bundle.js' defer></script>
-                           <script>window.__INITIAL_ERRORS__= ${serialize(errors)}</script>
-                           <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
-                           <script>window.__INITIAL_DATA__= ${serialize(data)}</script>
-                           <title>Практикуй английский</title>
-                            </head>
-                          <body>
-                         <div id="app">
-                       ${mark}
-                    </div>
-                  </body>
-              </html>
-          `
-        );
+          getData()
+          .then(data => {
+            const errors = [{'msg': 'Такой Email уже используется'}];
+            const cond = req.isAuthenticated();
+            const mark = renderToString(
+              <StaticRouter>
+                 <Registration />
+              </StaticRouter>
+            )
+          res.send(
+            `<!DOCTYPE html>
+                <html>
+                    <head>
+                      <title>Speaqiz - Регистрация</title>
+                        <link rel="stylesheet" type="text/css" href="main.css">
+                         <meta name="viewport" content="width=device-width, initial-scale=1">
+                           <script src='bundle.js' defer></script>
+                             <script>window.__INITIAL_ERRORS__= ${serialize(errors)}</script>
+                             <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
+                             <script>window.__INITIAL_DATA__= ${serialize(data)}</script>
+                             <title>Практикуй английский</title>
+                              </head>
+                            <body>
+                           <div id="app">
+                         ${mark}
+                      </div>
+                    </body>
+                </html>
+            `
+          );
+        }).catch(next)
+
         return done(null, false);
       }
 
