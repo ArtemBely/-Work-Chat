@@ -32,7 +32,7 @@ class Enter extends React.Component {
   render() {
     return (
       <p className='form2' style={{
-        display: (this.state.data ? 'grid' : 'none')
+        opacity: (this.state.data ? 1 : 0)
       }}>
       {this.check2()}
         <NavLink to='/' className='back'><img src={arrow} id='arrow'/>назад</NavLink>
