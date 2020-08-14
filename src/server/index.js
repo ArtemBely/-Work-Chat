@@ -94,7 +94,7 @@ app.get('/', (req, res, next) => {
                      <script>window.__INITIAL_DATA__= ${serialize(data)}</script>
                         <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
                          <script>window.__INITIAL_USER__= ${serialize(user)}</script>
-                          <title>Практикуй английский</title>
+                          <title>Практикуй англиrйский</title>
                         </head>
                       <body>
                      <div id="app">
