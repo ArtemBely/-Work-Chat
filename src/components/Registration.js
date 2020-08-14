@@ -62,11 +62,11 @@ class Registration extends React.Component {
     if(!this.state.success) {
       return(
         <p style ={{
-          display: (this.state.data ? 'grid' : 'none')
+          display: (this.state.data || this.state.errors && this.state.errors.length > 0 ? 'grid' : 'none')
         }}>
          <NavLink to='/' className='back'><img src={arrow} id='arrow'/>назад</NavLink>
           <form action='/signup' method='POST' className='form_check' style ={{
-            display: (this.state.data && this.state.data.user ? 'grid' : 'none')
+            display: (this.state.data && this.state.data.user || this.state.errors && this.state.errors.length > 0 ? 'grid' : 'none')
           }}>
             <input type='text' name='name' placeholder='введите имя' required/>
              <input type='text' name='lastname' placeholder='введите фамилию' required/>

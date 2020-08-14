@@ -69,8 +69,7 @@ router.post('/', notLoggedIn, (req, res, done) => {
   var errors = req.validationErrors();
 
     if(errors) {
-        getData()
-        .then(data => {
+
           const cond = req.isAuthenticated();
           const mark = renderToString(
             <StaticRouter>
@@ -87,7 +86,6 @@ router.post('/', notLoggedIn, (req, res, done) => {
                           <script src='bundle.js' defer></script>
                              <script>window.__INITIAL_ERRORS__= ${serialize(errors)}</script>
                              <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
-                             <script>window.__INITIAL_DATA__= ${serialize(data)}</script>
                              <title>Регистрация</title>
                               </head>
                             <body>
@@ -98,7 +96,6 @@ router.post('/', notLoggedIn, (req, res, done) => {
                 </html>
             `
           )
-        }).catch(next)
       }
 
       SignUp.findOne({email: email}, function(err, user) {
@@ -106,8 +103,6 @@ router.post('/', notLoggedIn, (req, res, done) => {
           return done(err);
         }
         if(user) {
-          getData()
-          .then(data => {
             const errors = [{'msg': 'Такой Email уже используется'}];
             const cond = req.isAuthenticated();
             const mark = renderToString(
@@ -125,7 +120,6 @@ router.post('/', notLoggedIn, (req, res, done) => {
                            <script src='bundle.js' defer></script>
                              <script>window.__INITIAL_ERRORS__= ${serialize(errors)}</script>
                              <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
-                             <script>window.__INITIAL_DATA__= ${serialize(data)}</script>
                              <title>Практикуй английский</title>
                               </head>
                             <body>
@@ -136,7 +130,6 @@ router.post('/', notLoggedIn, (req, res, done) => {
                 </html>
             `
           );
-        }).catch(next)
 
         return done(null, false);
       }
