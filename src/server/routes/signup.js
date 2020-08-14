@@ -35,9 +35,9 @@ router.get('/', notLoggedIn, (req, res, next) => {
       `<!DOCTYPE html>
           <html>
               <head>
-                <title>Speaqiz - Регистрация</title>
+                <title>Регистрация</title>
                   <link rel="stylesheet" type="text/css" href="../main.css">
-                  <link rel="shortcut icon" href="/images/astronaut-3.ico" type="image/x-icon">
+                  <link rel="shortcut icon" href="/images/main.ico" type="image/x-icon">
                   <meta name="viewport" content="width=device-width, initial-scale=1">
                     <script src='/bundle.js' defer></script>
                         <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
@@ -80,10 +80,11 @@ router.post('/', notLoggedIn, (req, res, done) => {
             `<!DOCTYPE html>
                 <html>
                     <head>
-                      <title>Speaqiz - Регистрация</title>
+                      <title>Регистрация</title>
                         <link rel="stylesheet" type="text/css" href="main.css">
-                        <meta name="viewport" content="width=device-width, initial-scale=1">
-                          <script src='bundle.js' defer></script>
+                         <link rel="shortcut icon" href="/images/main.ico" type="image/x-icon">
+                          <meta name="viewport" content="width=device-width, initial-scale=1">
+                           <script src='bundle.js' defer></script>
                              <script>window.__INITIAL_ERRORS__= ${serialize(errors)}</script>
                              <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
                              <title>Регистрация</title>
@@ -114,9 +115,10 @@ router.post('/', notLoggedIn, (req, res, done) => {
             `<!DOCTYPE html>
                 <html>
                     <head>
-                      <title>Speaqiz - Регистрация</title>
+                      <title>Регистрация</title>
                         <link rel="stylesheet" type="text/css" href="main.css">
-                         <meta name="viewport" content="width=device-width, initial-scale=1">
+                         <link rel="shortcut icon" href="/images/main.ico" type="image/x-icon">
+                          <meta name="viewport" content="width=device-width, initial-scale=1">
                            <script src='bundle.js' defer></script>
                              <script>window.__INITIAL_ERRORS__= ${serialize(errors)}</script>
                              <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
@@ -158,10 +160,11 @@ router.post('/', notLoggedIn, (req, res, done) => {
             `<!DOCTYPE html>
                   <html>
                       <head>
-                         <title>Speaqiz - Регистрация</title>
+                         <title>Регистрация</title>
                             <link rel="stylesheet" type="text/css" href="main.css">
-                             <meta name="viewport" content="width=device-width, initial-scale=1">
-                               <script src='bundle.js' defer></script>
+                              <link rel="shortcut icon" href="/images/main.ico" type="image/x-icon">
+                               <meta name="viewport" content="width=device-width, initial-scale=1">
+                                <script src='bundle.js' defer></script>
                                   <script>window.__INITIAL_STATE__ = ${serialize(indicate)}</script>
                                    <script>window.__INITIAL_SUCCESS__ = ${serialize(success)}</script>
                                     <script>window.__INITIAL_INDICATE__ = ${serialize(indicate)}</script>

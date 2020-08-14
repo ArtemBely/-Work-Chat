@@ -37,11 +37,11 @@ class Enter extends React.Component {
       <p className='form2' style={{
         display: (this.state.data && this.state.data.user || this.state.errors && this.state.errors.length > 0 ? 'grid' : 'none')
       }}>
-      {this.check2()}
-        <NavLink to='/' className='back'><img src={arrow} id='arrow'/>назад</NavLink>
-          <form action='/signin' method='POST' className='form_check' style={{
-            display: (this.state.data && this.state.data.user || this.state.errors && this.state.errors.length > 0 ? 'grid' : 'none')
-          }}>
+        {this.check2()}
+          <NavLink to='/' className='back'><img src={arrow} id='arrow'/>назад</NavLink>
+            <form action='/signin' method='POST' className='form_check' style={{
+              display: (this.state.data && this.state.data.user || this.state.errors && this.state.errors.length > 0 ? 'grid' : 'none')
+              }}>
              <input type='text' name='email' placeholder='введите email'/>
               <input type='text' name='password' placeholder='введите пароль'/>
             <button type='submit' className='but1'>Принять</button>

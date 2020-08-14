@@ -91,15 +91,15 @@ app.get('*', (req, res, next) => {
       `<!DOCTYPE html>
        <html>
         <head>
-          <title>Изучайте языки вместе со speaqiz</title>
+          <title>Общий чат</title>
             <link rel="stylesheet" type="text/css" href="../main.css">
-            <link rel="shortcut icon" href="/images/astronaut-3.ico" type="image/x-icon">
-             <meta name="viewport" content="width=device-width, initial-scale=1">
-              <script src='/bundle.js' defer></script>
-                 <script>window.__INITIAL_DATA__= ${serialize(data)}</script>
-                    <title>Практикуй английский</title>
+              <link rel="shortcut icon" href="/images/main.ico" type="image/x-icon">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                 <script src='/bundle.js' defer></script>
+                   <script>window.__INITIAL_DATA__= ${serialize(data)}</script>
+                    <title>Общий чат</title>
                   </head>
-                <body>
+                 <body>
                <div id="app">
              ${mark}
           </div>

@@ -29,8 +29,9 @@ router.get('/', isLoggedIn,  async (req, res, next) => {
       `<!DOCTYPE html>
             <html>
                 <head>
-                   <title>Speaqiz - Регистрация</title>
+                   <title>Общение</title>
                       <link rel="stylesheet" type="text/css" href="main.css">
+                        <link rel="shortcut icon" href="/images/main.ico" type="image/x-icon">
                           <meta name="viewport" content="width=device-width, initial-scale=1">
                              <script src='bundle.js' defer></script>
                               <script>window.__INITIAL_DATA__= ${serialize(data)}</script>

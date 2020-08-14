@@ -24,13 +24,14 @@ router.get('/', notLoggedIn, (req, res, next) => {
       `<!DOCTYPE html>
           <html>
               <head>
-                <title>Speaqiz - Регистрация</title>
+                <title>Вход</title>
                   <link rel="stylesheet" type="text/css" href="main.css">
-                   <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <script>window.__INITIAL_MESSAGE__ = ${serialize(errors)}</script>
-                     <script>window.__INITIAL_COND__ = ${serialize(cond)}</script>
-                     <script>window.__INITIAL_DATA__ = ${serialize(data)}</script>
-                      <script>window.__INITIAL_USER__ = ${serialize(user)}</script>                   <script src='bundle.js' defer></script>
+                   <link rel="shortcut icon" href="/images/main.ico" type="image/x-icon">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                     <script>window.__INITIAL_MESSAGE__ = ${serialize(errors)}</script>
+                      <script>window.__INITIAL_COND__ = ${serialize(cond)}</script>
+                       <script>window.__INITIAL_DATA__ = ${serialize(data)}</script>
+                       <script>window.__INITIAL_USER__ = ${serialize(user)}</script>                   <script src='bundle.js' defer></script>
                        <title>Регистрация</title>
                         </head>
                       <body>

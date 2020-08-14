@@ -200,6 +200,8 @@ body {
         justify-self: center;
 }
 #mac {
+  position: relative;
+  top: -150px;
   width: 400px;
   opacity: 0.9;
   -ms-grid-row: 2;
@@ -255,6 +257,8 @@ body {
           transform: scale(1.1);
 }
 #wait {
+  position: relative;
+  top: -250px;
   display: -ms-grid;
   display: grid;
   -ms-grid-column-align: center;
