@@ -35,7 +35,7 @@ class Profile extends React.Component {
   render() {
     return (
       <p className='profile' style={{
-        display: (this.state.user ? 'grid' : 'none')
+        display: (this.state.info ? 'grid' : 'none')
       }}>
           <Header />
           <i id='wait'>{this.user()} Тебя ждут в чате! :)</i>

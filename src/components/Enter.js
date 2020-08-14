@@ -9,11 +9,14 @@ class Enter extends React.Component {
     super()
 
     let message;
+    let data;
     if(__isBrowser__) {
       message = window.__INITIAL_MESSAGE__;
+      data = window.__INITIAL_DATA__;
     }
     this.state = {
-      message
+      message,
+      data
     }
   }
 
@@ -28,7 +31,9 @@ class Enter extends React.Component {
   }
   render() {
     return (
-      <p className='form2'>
+      <p className='form2' style={{
+        display: (this.state.data ? 'grid' : 'none')
+      }}>
       {this.check2()}
         <NavLink to='/' className='back'><img src={arrow} id='arrow'/>назад</NavLink>
           <form action='/signin' method='POST' className='form_check'>
