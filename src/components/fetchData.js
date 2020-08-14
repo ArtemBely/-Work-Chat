@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 async function getData() {
-  return await axios.get('http://localhost:8888/api/profilefast')
+  return await axios.get('https://ourworkchat.herokuapp.com/api/profilefast')
   .then(res => {
     let info = res.data;
     return info;

@@ -34,10 +34,12 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <p className='profile'>
+      <p className='profile' style={{
+        display: (this.state.user ? 'block' : 'none')
+      }}>
           <Header />
           <i id='wait'>{this.user()} Тебя ждут в чате! :)</i>
-          <img src={mac} id='mac'/>
+          <img src={mac} id='mac' />
       </p>
     )
   }
