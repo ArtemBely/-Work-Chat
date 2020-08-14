@@ -36,7 +36,9 @@ class Enter extends React.Component {
       }}>
       {this.check2()}
         <NavLink to='/' className='back'><img src={arrow} id='arrow'/>назад</NavLink>
-          <form action='/signin' method='POST' className='form_check'>
+          <form action='/signin' method='POST' className='form_check' style={{
+            display: (this.state.data && this.state.data.user ? 'grid' : 'none')
+          }}>
              <input type='text' name='email' placeholder='введите email'/>
               <input type='text' name='password' placeholder='введите пароль'/>
             <button type='submit' className='but1'>Принять</button>
