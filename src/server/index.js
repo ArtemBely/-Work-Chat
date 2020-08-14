@@ -13,6 +13,7 @@ import App from '../components/App';
 import Main from '../components/Main';
 import passport from 'passport';
 import flash from 'connect-flash';
+import { getData } from '../../components/fetchData';
 
 const port = process.env.PORT || 5000;
 const CONNECTION_URI = process.env.MONGODB_URI;
@@ -70,6 +71,40 @@ app.use('/profile', profileRouter);
 app.use('/api', apiRouter);
 app.use('/communication', commRouter);
 app.use('/work', workRouter);
+
+app.get('/', (req, res, next) => {
+  getClass()
+  .then(data => {
+    const cond = req.isAuthenticated();
+    const user = req.user;
+    const mark = renderToString(
+      <StaticRouter>
+         <Main />
+      </StaticRouter>
+    )
+    return res.send(
+      `<!DOCTYPE html>
+          <html>
+              <head>
+                <title>Изучайте языки вместе со speaqiz</title>
+                  <link rel="stylesheet" type="text/css" href="../main.css">
+                  <link rel="shortcut icon" href="/images/astronaut-3.ico" type="image/x-icon">
+                  <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <script src='/bundle.js' defer></script>
+                     <script>window.__INITIAL_DATA__= ${serialize(data)}</script>
+                        <script>window.__INITIAL_COND__= ${serialize(cond)}</script>
+                         <script>window.__INITIAL_USER__= ${serialize(user)}</script>
+                          <title>Практикуй английский</title>
+                        </head>
+                      <body>
+                     <div id="app">
+                   ${mark}
+                </div>
+              </body>
+          </html>`
+      )
+  }).catch(next)
+});
 
 app.get('*', (req, res, next) => {
   const activeRouter = Routes.find((route) => matchPath(req.url, route)) || {};
